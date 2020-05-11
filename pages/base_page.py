@@ -1,5 +1,3 @@
-# from selenium.common.exceptions import AssertionError
-
 class BasePage():
     """Base class for working with pages"""
     def __init__(self, browser, url, timeout=10):
