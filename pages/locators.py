@@ -6,6 +6,18 @@ class MainPageLocators():
 
 
 class LoginPageLocators():
-	LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
 
-	REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+
+class ProductPageLocators():
+    BUTTON_ADD_BASKET  = (By.CSS_SELECTOR, ".btn-add-to-basket")
+
+    NAME_PRODUCT = (By.CSS_SELECTOR, ".product_main h1")
+    MASSAGE_ADDED_BASKET  = (By.CSS_SELECTOR, "div.alertinner")
+    NAME_FROM_MESSAGE = (By.CSS_SELECTOR, "div.alertinner strong")
+
+    COST_PRODUCT = (By.CSS_SELECTOR, ".product_main .price_color")
+    MASSAGE_COST_BASKET  = (By.CSS_SELECTOR, ".alert-info .alertinner")
+    COST_FROM_MESSAGE = (By.CSS_SELECTOR, ".alert-info .alertinner p strong")
+
