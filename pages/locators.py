@@ -21,3 +21,5 @@ class ProductPageLocators():
     MASSAGE_COST_BASKET  = (By.CSS_SELECTOR, ".alert-info .alertinner")
     COST_FROM_MESSAGE = (By.CSS_SELECTOR, ".alert-info .alertinner p strong")
 
+    # MESSAGE_DISAPPEAR = (By.CSS_SELECTOR, "OLOLOL")
+

@@ -8,8 +8,6 @@ class ProductPage(BasePage):
         # нажать кнопку "Добавить в корзину"
         button = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_BASKET)
         button.click()
-        # пройти проверку в алерте методом solve_quiz_and_get_code()
-        self.solve_quiz_and_get_code()
 
     def should_be_message_product_add_basket_and_name_match(self):
         # есть сообщение, что товар добавлен в корзину
@@ -36,3 +34,11 @@ class ProductPage(BasePage):
         print(f"cost_product: {cost_product} ============= cost_from_message: {cost_from_message}\n\n")
         assert cost_product == cost_from_message, \
             "Value does not match product price"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.MASSAGE_ADDED_BASKET), \
+            "Success message is presented, but should not be"
+
+    def should_be_message_disappeared(self):
+        assert self.is_not_element_present(*ProductPageLocators.MASSAGE_ADDED_BASKET), \
+            "The message did not disappear"
