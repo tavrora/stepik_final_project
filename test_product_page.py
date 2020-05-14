@@ -3,8 +3,9 @@ from .pages.product_page import ProductPage
 
 # link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
 # link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+# link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 
-@pytest.mark.skip
 @pytest.mark.parametrize('link',
                          ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                           "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
@@ -32,9 +33,7 @@ def  test_guest_can_add_product_to_basket(browser, link):
     # и стоимость совпадает с ценой товара
     product_page.should_be_message_cost_basket_and_cost_match()
 
-@pytest.mark.parametrize('link',
-                         ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"])
-def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, link):
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     # Открываем страницу товара
     product_page = ProductPage(browser, link)
     product_page.open()
@@ -43,18 +42,14 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, 
     # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
     product_page.should_not_be_success_message()
 
-@pytest.mark.parametrize('link',
-                         ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"])
-def test_guest_cant_see_success_message(browser, link):
+def test_guest_cant_see_success_message(browser):
     # Открываем страницу товара
     product_page = ProductPage(browser, link)
     product_page.open()
     # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
     product_page.should_not_be_success_message()
 
-@pytest.mark.parametrize('link',
-                         ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"])
-def test_message_disappeared_after_adding_product_to_basket(browser, link):
+def test_message_disappeared_after_adding_product_to_basket(browser):
     # Открываем страницу товара
     product_page = ProductPage(browser, link)
     product_page.open()
@@ -62,3 +57,13 @@ def test_message_disappeared_after_adding_product_to_basket(browser, link):
     product_page.add_to_basket()
     # Проверяем, что нет сообщения об успехе с помощью is_disappeared
     product_page.should_be_message_disappeared()
+
+def test_guest_should_see_login_link_on_product_page(browser):
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_login_link()
+
+def test_guest_can_go_to_login_page_from_product_page(browser):
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_login_page()
