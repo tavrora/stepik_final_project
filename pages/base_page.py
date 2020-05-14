@@ -6,6 +6,7 @@ import math
 import re
 
 from .locators import BasePageLocators
+from .locators import BasketPageLocators
 
 class BasePage():
     """Base class for working with pages"""
@@ -35,6 +36,10 @@ class BasePage():
         except TimeoutException:
             return False
         return True
+
+    def go_to_basket(self):
+        link = self.browser.find_element(*BasketPageLocators.BASKET_BUTTON)
+        link.click()
 
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)

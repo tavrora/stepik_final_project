@@ -25,3 +25,8 @@ class ProductPageLocators():
     COST_PRODUCT = (By.CSS_SELECTOR, ".product_main .price_color")
     MASSAGE_COST_BASKET  = (By.CSS_SELECTOR, ".alert-info .alertinner")
     COST_FROM_MESSAGE = (By.CSS_SELECTOR, ".alert-info .alertinner p strong")
+
+class BasketPageLocators():
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".basket-mini .btn-default")
+    BASKET_EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+    BASKET_FILLING = (By.CSS_SELECTOR, "#basket_formset")
