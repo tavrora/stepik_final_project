@@ -18,8 +18,9 @@ class TestLoginFromMainPage():
         page.open()
         page.go_to_login_page()
         login_page = LoginPage(browser, browser.current_url)
-        # 3 functions are called from login_page, may fall for 1 out of 3 asserts
+        # 3 функции вызываются из login_page, может упасть на любой из них
         login_page.should_be_login_page()
+
 
 @pytest.mark.basket
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
